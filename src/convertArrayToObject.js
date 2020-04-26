@@ -8,4 +8,12 @@ const convert = (array) => {
 };
 export default convert;
 
+// лучшее решение
+// const convert = (arr) => arr.reduce((acc, item) => {
+//   const [key, value] = item;
+//   const newValue = Array.isArray(value) ? convert(value) : value;
+//   return { ...acc, [key]: newValue };
+// }, {});
+
+
 console.log(convert([]));
