@@ -15,8 +15,6 @@ Money.prototype.exchangeTo = function(currency) {
     return currency === 'usd' ? new Money(this.getValue() * 1.2, 'usd') : new Money(this.getValue() * 0.7, 'eur');
 }
 Money.prototype.add = function(money) {
-    console.log(this.getValue())
-    console.log(money.getValue())
     if (this.getCurrency() !== money.getCurrency()) {
         return this.getCurrency() === 'usd' ?
         new Money(this.getValue() + money.exchangeTo('usd').getValue(), 'usd') :
