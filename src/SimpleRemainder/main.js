@@ -72,6 +72,5 @@ const app = () => {
 
   renderLists(lists);
 };
-export default app;
 
 app();
