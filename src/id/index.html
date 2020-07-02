@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    p {
+      white-space: pre;
+    }
+  </style>
+</head>
+<body>
+  <textarea name="" id="" cols="30" rows="10"></textarea>
+  <button id="do">Do</button>
+  <p></p>
+  <script>
+    document.querySelector('#do').addEventListener('click', () => {
+      const content = document.querySelector('textarea').value;
+      const mod = content.split('\n').map((item) => `'${item}',`).join('\n');
+      document.body.querySelector('p').append(mod);
+    });
+  </script>
+</body>
+</html>
