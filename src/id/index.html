@@ -11,14 +11,31 @@
   </style>
 </head>
 <body>
-  <textarea name="" id="" cols="30" rows="10"></textarea>
+  <textarea name="" id="" cols="30" rows="10" id="one"></textarea>
+  <textarea name="" id="" cols="30" rows="10" id="two"></textarea>
   <button id="do">Do</button>
-  <p></p>
+  <p id= "first"></p>
+  <p id= "second"></p>
   <script>
     document.querySelector('#do').addEventListener('click', () => {
-      const content = document.querySelector('textarea').value;
-      const mod = content.split('\n').map((item) => `'${item}',`).join('\n');
-      document.body.querySelector('p').append(mod);
+      const links = document.querySelector('#one').value;
+      const ids = document.querySelector('#two').value;
+      const lines = [];
+      const lines2 = [];
+      for (let i = 0; i < links.length; i += 1) {
+        const link = links[i];
+        const id = ids[i];
+        const line = `UPDATE Cameras SET url = '${link}' WHERE Id = '${id}'`;
+        const line2 = 
+        `UPDATE Cameras SET statusonmediaserver = 4, sourcestreamurl = '${link}' WHERE Id = '${id}'`;
+        lines.push(line);
+        lines2.push(line2);
+      }
+      const mod = lines.join('\n');
+      const mod = lines2.join('\n');
+      // const mod = content.split('\n').map((item) => `'${item}',`).join('\n');
+      document.body.querySelector('p#first').append(mod);
+      document.body.querySelector('p#second').append(mod2);
     });
   </script>
 </body>
